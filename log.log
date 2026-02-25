@@ -1,2 +1,2 @@
-2026/02/25 15:42:48 bootLoader: vmlinuz: "/Users/ani/workspaces/github.com/anishalle/containers/images/ubuntu/vmlinuz", initrd: "/Users/ani/workspaces/github.com/anishalle/containers/images/ubuntu/initrd", command-line: "console=hvc0 root=/dev/ram0 rdinit=/bin/sh"
-2026/02/25 15:42:48 start VM is running
+2026/02/25 17:17:28 bootLoader: vmlinuz: "/Users/ani/workspaces/github.com/anishalle/containers/images/ubuntu/vmlinuz", initrd: "/Users/ani/workspaces/github.com/anishalle/containers/images/ubuntu/initrd", command-line: "console=hvc0 root = /dev/vda"
+2026/02/25 17:17:28 start VM is running

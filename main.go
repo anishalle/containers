@@ -49,8 +49,9 @@ func main() {
 		"console=hvc0",
 		// Stop in the initial ramdisk before attempting to transition to
 		// the root file system.
-		"root=/dev/ram0",
-		"rdinit=/bin/sh",
+		"root = /dev/vda",
+		// "root=/dev/ram0",
+		// "rdinit=/bin/sh",
 	}
 
 	vmlinuz := os.Getenv("VMLINUZ_PATH")
