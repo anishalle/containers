@@ -11,6 +11,7 @@
 *.log
 virtualization
 
+.DS_Store
 images/
 
 # Test binary, built with `go test -c`
