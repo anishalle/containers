@@ -57,6 +57,7 @@ func main() {
 	vmlinuz := os.Getenv("VMLINUZ_PATH")
 	initrd := os.Getenv("INITRD_PATH")
 	diskPath := os.Getenv("DISKIMG_PATH")
+	diskBlock := os.Getenv("DISKBLOCK_PATH")
 
 	bootLoader, err := vz.NewLinuxBootLoader(
 		vmlinuz,
@@ -119,6 +120,7 @@ func main() {
 		entropyConfig,
 	})
 
+	// disks
 	diskImageAttachment, err := vz.NewDiskImageStorageDeviceAttachment(
 		diskPath,
 		false,
@@ -126,12 +128,27 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	diskBlockAttachment, err := vz.NewDiskImageStorageDeviceAttachment(
+		diskBlock,
+		false,
+	)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	storageDeviceConfig, err := vz.NewVirtioBlockDeviceConfiguration(diskImageAttachment)
+	if err != nil {
+		log.Fatalf("Storage Device Config creation failed: %s", err)
+	}
+
+	blockDeviceConfig, err := vz.NewVirtioBlockDeviceConfiguration(diskBlockAttachment)
 	if err != nil {
 		log.Fatalf("Block device creation failed: %s", err)
 	}
 	config.SetStorageDevicesVirtualMachineConfiguration([]vz.StorageDeviceConfiguration{
 		storageDeviceConfig,
+		blockDeviceConfig,
 	})
 
 	// traditional memory balloon device which allows for managing guest memory. (optional)
