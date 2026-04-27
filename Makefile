@@ -7,4 +7,5 @@ codesign:
 
 .PHONY: build
 build:
-	go build -o virtualization .
+	go build -o virtualization ./cmd
+

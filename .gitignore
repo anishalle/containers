@@ -12,7 +12,8 @@
 virtualization
 
 .DS_Store
-images/
+image/
+
 
 # Test binary, built with `go test -c`
 *.test
